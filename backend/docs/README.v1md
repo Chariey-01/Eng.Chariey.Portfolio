@@ -1,0 +1,160 @@
+# Charity Jepkoech — Developer Portfolio
+
+A full-stack, API-driven personal portfolio built to showcase my projects, skills, and journey as a software engineer. The frontend never hardcodes content — every project, skill, and detail is served from a Flask REST API backed by PostgreSQL, so the site can grow into a full CMS without a rewrite.
+
+**Live site:** [ ] <!-- Vercel URL -->
+**API:** [ ] <!-- Render URL -->
+
+---
+
+## Tech Stack
+
+**Backend**
+- Python / Flask
+- Flask REST API (blueprints)
+- SQLAlchemy ORM
+- PostgreSQL
+- Flask-Migrate (Alembic)
+- Flask-Mail
+- Flask-JWT-Extended (future auth)
+
+**Frontend**
+- React + TypeScript
+- Vite
+- TailwindCSS
+- React Router
+- Axios
+
+**Deployment**
+- Frontend → Vercel
+- Backend + Database → Render
+
+---
+
+## Project Structure
+
+```
+my-portfolio/
+├── backend/     # Flask REST API — routes, controllers, services, models
+├── frontend/    # React + TypeScript SPA
+└── README.md
+```
+
+See `backend/README.md` and `frontend/README.md` (added once those directories exist) for layer-by-layer detail.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL 14+
+
+### Backend Setup
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env      # fill in DATABASE_URL, SECRET_KEY, MAIL_* etc.
+flask db upgrade
+python run.py
+```
+
+API runs at `http://localhost:5000`.
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+cp .env.example .env      # set VITE_API_BASE_URL=http://localhost:5000/api/v1
+npm run dev
+```
+
+App runs at `http://localhost:5173`.
+
+---
+
+## Environment Variables
+
+**backend/.env**
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `SECRET_KEY` | Flask session/signing secret |
+| `MAIL_SERVER` / `MAIL_USERNAME` / `MAIL_PASSWORD` | Flask-Mail config for contact form notifications |
+| `CORS_ORIGIN` | Allowed frontend origin |
+
+**frontend/.env**
+
+| Variable | Purpose |
+|---|---|
+| `VITE_API_BASE_URL` | Base URL of the Flask API |
+
+Neither `.env` file is committed — see `.env.example` in each directory for the required keys.
+
+---
+
+## API Overview
+
+All endpoints are prefixed `/api/v1`.
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/projects` | List all projects |
+| GET | `/projects/<slug>` | Single project detail (problem, role, architecture, challenges, lessons, screenshots) |
+| GET | `/skills` | List skills |
+| POST | `/contact` | Submit contact form |
+| GET | `/health` | Health check |
+
+---
+
+## Featured Projects
+
+| Project | Description | Repo |
+|---|---|---|
+| **CampusPulse** | Full-stack campus discovery platform for restaurants, hostels, events, and study spaces. | [ ] |
+| **DevCrypt** | Cybersecurity CTF platform built for the Moringa School Career Fair. | [ ] |
+| **Aurelia** | React shopping app demonstrating component architecture and state management. | [ ] |
+| **Personal Coding Tracker** | Productivity app for tracking learning goals and daily progress. | [ ] |
+
+Full write-ups (problem, my role, architecture, challenges, lessons learned) are on the live site's project detail pages.
+
+---
+
+## Deployment
+
+- **Backend** deploys to Render from `backend/`; migrations run automatically via the release step, served by Gunicorn.
+- **Frontend** deploys to Vercel from `frontend/`; builds via Vite, with SPA rewrites configured for React Router.
+
+---
+
+## Roadmap
+
+- [ ] Admin dashboard + authentication
+- [ ] Blog / articles
+- [ ] Certificates & testimonials
+- [ ] Dark mode
+- [ ] Visitor analytics
+- [ ] GitHub API auto-sync for projects
+- [ ] Project search & filtering
+- [ ] Resume versioning
+
+---
+
+## Contact
+
+- Email: charityjepkoech007@gmail.com
+- GitHub: [ ]
+- LinkedIn: [ ]
+
+---
+
+## License
+
+[ ] <!-- e.g. MIT -->
